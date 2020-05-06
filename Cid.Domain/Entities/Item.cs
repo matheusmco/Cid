@@ -7,6 +7,6 @@ namespace Cid.Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime? FinishedDate { get; set; }
-        public bool IsUnfinished => FinishedDate.HasValue;
+        public bool IsUnfinished => !FinishedDate.HasValue;
     }
 }
