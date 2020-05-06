@@ -1,4 +1,4 @@
-namespace Cid.Domain
+namespace Cid.Domain.Entities
 {
     public class Series : Watchable
     {

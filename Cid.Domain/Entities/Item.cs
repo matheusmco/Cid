@@ -1,6 +1,6 @@
 using System;
 
-namespace Cid.Domain
+namespace Cid.Domain.Entities
 {
     public abstract class Item
     {
