@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using Cid.Domain.Entities;
+
 namespace Cid.Infra.Data
 {
     public class DatabaseContext : DbContext
@@ -7,5 +11,10 @@ namespace Cid.Infra.Data
         public DbSet<Game> Games { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Series> Series { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
+        }
     }
 }
