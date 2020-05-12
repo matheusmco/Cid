@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using Cid.Domain.Entities;
 
 namespace Cid.Infra.Data
@@ -14,7 +13,7 @@ namespace Cid.Infra.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            optionsBuilder.UseNpgsql("Host=localhost;Database=cid;Username=postgres;Password=postgres");
         }
     }
 }
