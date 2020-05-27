@@ -1,37 +1,18 @@
-using System.Collections.Generic;
 using Cid.Domain.Entities;
 using Cid.Infra.Data.Contracts;
 
 namespace Cid.Infra.Data.Repositories
 {
-    public class ComicRepository : IRepository<Comic>
+    public class ComicRepository : IComicRepository
     {
         private readonly DatabaseContext _dbcontext;
-        public ComicRepository(DatabaseContext databaseContext)
+        private readonly IRepository<Comic> _repository;
+        public ComicRepository(DatabaseContext databaseContext, IRepository<Comic> repository)
         {
             _dbcontext = databaseContext;
+            _repository = repository;
         }
 
-        public void Delete(Comic entity) => _dbcontext.Comics.Remove(entity);
-
-        public IEnumerable<Comic> GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Comic GetById(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Save(Comic entity)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Update(Comic entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        public void Add(Comic comic) => _repository.Add(comic);
     }
 }
