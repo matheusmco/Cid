@@ -8,10 +8,7 @@ namespace Cid.Tests.Domain
         [Test]
         public void FinishedDateIsNull_IsItemUnfinished()
         {
-            var item = new Book
-            {
-                FinishedDate = null
-            };
+            var item = new Book(null, null);
 
             Assert.IsTrue(item.IsUnfinished);
         }

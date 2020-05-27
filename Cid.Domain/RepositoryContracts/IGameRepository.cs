@@ -1,6 +1,6 @@
 using Cid.Domain.Entities;
 
-namespace Cid.Infra.Data.Contracts
+namespace Cid.Domain.RepositoryContracts
 {
     public interface IGameRepository
     {

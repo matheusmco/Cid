@@ -1,4 +1,5 @@
 using Cid.Domain.Entities;
+using Cid.Domain.RepositoryContracts;
 using Cid.Infra.Data.Contracts;
 
 namespace Cid.Infra.Data.Repositories

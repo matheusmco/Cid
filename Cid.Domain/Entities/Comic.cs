@@ -1,7 +1,11 @@
+using System;
+
 namespace Cid.Domain.Entities
 {
-    public class Comic : Readable
+    public class Comic : Item
     {
-        
+        public Comic(string name, DateTime? finishedDate) : base(name, finishedDate)
+        {
+        }
     }
 }
