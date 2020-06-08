@@ -13,7 +13,7 @@ namespace Cid.Infra.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Database=cid;Username=postgres;Password=postgres");
+            optionsBuilder.UseSqlServer("Server=localhost;Database=cid;User Id=SA;Password=Cid12345");
         }
     }
 }
