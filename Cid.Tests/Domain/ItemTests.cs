@@ -1,4 +1,5 @@
-using Cid.Domain.Entities;
+using Cid.Domain.Enums;
+using Cid.Domain.Models;
 using NUnit.Framework;
 
 namespace Cid.Tests.Domain
@@ -8,7 +9,7 @@ namespace Cid.Tests.Domain
         [Test]
         public void FinishedDateIsNull_IsItemUnfinished()
         {
-            var item = new Book(null, null);
+            var item = new Item(null, default(ItemType));
 
             Assert.IsTrue(item.IsUnfinished);
         }

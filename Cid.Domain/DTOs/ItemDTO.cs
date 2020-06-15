@@ -1,6 +1,6 @@
 using System;
 
-namespace Cid.Domain.Resources
+namespace Cid.Domain.DTOs
 {
     public class ItemDTO
     {

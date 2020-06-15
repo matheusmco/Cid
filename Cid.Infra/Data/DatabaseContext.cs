@@ -1,19 +1,26 @@
 using Microsoft.EntityFrameworkCore;
-using Cid.Domain.Entities;
+using Cid.Domain.Models;
+using Cid.Domain.Enums;
+using System;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cid.Infra.Data
 {
     public class DatabaseContext : DbContext
     {
-        public DbSet<Book> Books { get; set; }
-        public DbSet<Comic> Comics { get; set; }
-        public DbSet<Game> Games { get; set; }
-        public DbSet<Movie> Movies { get; set; }
-        public DbSet<Series> Series { get; set; }
+        public DbSet<Item> Itens { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=localhost;Database=cid;User Id=SA;Password=Cid12345");
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder
+                .Entity<Item>()
+                .Property(e => e.Type)
+                .HasConversion<string>();
         }
     }
 }

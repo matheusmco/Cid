@@ -1,51 +1,26 @@
-using Cid.Domain.Entities;
+using System;
+using Cid.Domain.DTOs;
+using Cid.Domain.Enums;
+using Cid.Domain.Models;
 using Cid.Domain.RepositoryContracts;
-using Cid.Domain.Resources;
 
 namespace Cid.Domain.Services
 {
     public class ItemService
     {
-        private readonly IBookRepository _bookRepository;
-        private readonly IComicRepository _comicRepository;
-        private readonly IGameRepository _gameRepository;
-        private readonly IMovieRepository _movieRepository;
-        private readonly ISeriesRepository _seriesRepository;
+        private readonly IItemRepository _itemRepository;
 
-        public ItemService(IBookRepository bookRepository, IComicRepository comicRepository, IGameRepository gameRepository, IMovieRepository movieRepository, ISeriesRepository seriesRepository)
+        public ItemService(IItemRepository itemRepository)
         {
-            _bookRepository = bookRepository;
-            _comicRepository = comicRepository;
-            _gameRepository = gameRepository;
-            _movieRepository = movieRepository;
-            _seriesRepository = seriesRepository;
+            _itemRepository = itemRepository;
         }
 
         public void AddItem(ItemDTO dto)
         {
-            var itemType = dto.Type;
+            var itemType = (ItemType)Enum.Parse(typeof(ItemType), dto.Type);
 
             // TODO: do mapping
-            var item = new Item(dto.Name, dto.FinishedDate);
-
-            switch (itemType)
-            {
-                case "book":
-                    _bookRepository.Add(item as Book);
-                    break;
-                case "comic":
-                    _comicRepository.Add(item as Comic);
-                    break;
-                case "game":
-                    _gameRepository.Add(item as Game);
-                    break;
-                case "movie":
-                    _movieRepository.Add(item as Movie);
-                    break;
-                case "series":
-                    _seriesRepository.Add(item as Series);
-                    break;
-            }
+            var item = new Item(dto.Name, itemType);
         }
     }
 }
