@@ -1,12 +1,14 @@
 using System;
+using AutoMapper;
 using Cid.Domain.DTOs;
 using Cid.Domain.Enums;
 using Cid.Domain.Models;
 using Cid.Domain.RepositoryContracts;
+using Cid.Domain.Services.Contracts;
 
 namespace Cid.Domain.Services
 {
-    public class ItemService
+    public class ItemService : IItemService
     {
         private readonly IItemRepository _itemRepository;
 
@@ -17,10 +19,10 @@ namespace Cid.Domain.Services
 
         public void AddItem(ItemDTO dto)
         {
+            // TODO: move to model
             var itemType = (ItemType)Enum.Parse(typeof(ItemType), dto.Type);
-
-            // TODO: do mapping
             var item = new Item(dto.Name, itemType);
+            _itemRepository.Add(item);
         }
     }
 }

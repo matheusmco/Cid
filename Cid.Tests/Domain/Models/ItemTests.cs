@@ -2,7 +2,7 @@ using Cid.Domain.Enums;
 using Cid.Domain.Models;
 using NUnit.Framework;
 
-namespace Cid.Tests.Domain
+namespace Cid.Tests.Domain.Models
 {
     public class ItemTests
     {
@@ -13,5 +13,8 @@ namespace Cid.Tests.Domain
 
             Assert.IsTrue(item.IsUnfinished);
         }
+
+        // TODO: check for item without name
+        // TODO: check for item without type
     }
 }

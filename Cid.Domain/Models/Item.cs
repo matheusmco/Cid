@@ -15,8 +15,13 @@ namespace Cid.Domain.Models
 
         public Item(string name, ItemType type, DateTime? finishedDate = null)
         {
+            // TODO: validate name
             Name = name;
+
+            // TODO: validate type
             Type = type;
+
+            // TODO: validate finished date greater than today
             FinishedDate = finishedDate;
         }
     }
